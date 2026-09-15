@@ -19,67 +19,6 @@ export const Ticket = conn.define("tickets", {
         allowNull: true
     },
 
-    id_creator_user: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: "Users",
-            key: "id_user"
-        }
-    },
-
-    id_assigned_user: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: "Users",
-            key: "id_user"
-        }
-    },
-
-    id_department: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: "Departments",
-            key: "id_department"
-        }
-    },
-
-    id_WorkTeam:{
-        type: DataTypes.INTEGER,
-        allowNull:false,
-        references: {
-            model: "WorkTeams",
-            key: "id_WorkTeam"
-        }
-    },
-
-    id_device: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: "SupportDevices",
-            key: "id_device"
-        }
-    },
-
-    id_statusTicket: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: "states_tickets",
-            key: "id"
-        }
-    }, 
-
-    id_priority: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: "priorities",
-            key: "id_priority"
-        }
-    },
-
     closedAt: {
         type: DataTypes.DATE,
         allowNull: true

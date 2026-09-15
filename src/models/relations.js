@@ -3,12 +3,12 @@ import { User } from "./modelUser.js";
 import { Rol } from "./ModelRol.js";
 import { Specialization } from "./ModelSpecialization.js";
 import { StatesTicket } from "./modelStates_ticket.js";
-import { TeamUser } from "./ModelTeam_user.js";
 import { WorkTeam } from "./ModelWorkTeam.js";
 import { SupportDevice } from "./ModelSupportDevice.js";
 import { Support } from "./ModelSupport.js";
 import { Ticket } from "./ModelTicket.js";
 import { priority } from "./ModelPriority.js";
+import { TeamUser } from "./ModelTeamUser.js";
 
 Rol.hasMany(User, { foreignKey: "id_rol" });
 User.belongsTo(Rol, { foreignKey: "id_rol" });
@@ -19,14 +19,18 @@ User.belongsTo(Department, { foreignKey: "id_department" });
 Specialization.hasMany(User, { foreignKey: "id_specialization" });
 User.belongsTo(Specialization, { foreignKey: "id_specialization" });
 
+
+//Correct TeamUser relationship
+//Foreign key WorkTeam
+WorkTeam.belongsToMany(User, {
+    through: TeamUser,
+    foreignKey: "id_WorkTeam"
+});
+
+//Foreign key User
 User.belongsToMany(WorkTeam, {
     through: TeamUser,
     foreignKey: "id_user"
-});
-
-WorkTeam.belongsToMany(User, {
-    through: TeamUser,
-    foreignKey: "id_team"
 });
 
 //Relation DevePelaez SupportDevice
@@ -116,6 +120,9 @@ priority.hasMany(Ticket, {
 Ticket.belongsTo(priority, {
     foreignKey: "id_priority"
 })
+
+
+//
 
 export {
     Rol,

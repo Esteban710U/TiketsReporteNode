@@ -1,6 +1,5 @@
 import express from "express";
 import { conn } from "./src/config/database.js";
-import TeamUserroute from "./src/Routes/RoutesTeam_user.js";
 import departmentRoutes from "./src/Routes/RoutesDepartment.js";
 import specializationRoutes from "./src/Routes/RoutesSpecialization.js";
 import rolRoutes from "./src/Routes/RoutesRol.js";
@@ -11,6 +10,7 @@ import SupportDeviceRoutes from "./src/Routes/RoutesSupportDevice.js";
 import SupportRoutes from "./src/Routes/RoutesSupport.js";
 import priorityRoutes from "./src/Routes/RoutesPriority.js"
 import TicketRoutes from "./src/Routes/RoutesTicket.js"
+import "./src/models/relations.js"
 
 const app = express();
 
@@ -27,7 +27,6 @@ app.use("/api", workTeamRoutes);
 app.use("/api", priorityRoutes)
 
 // cano
-app.use("/api/team_user", TeamUserroute);
 app.use("/api", StatesTicketRoute);
 
 //Pelaez
@@ -51,7 +50,7 @@ app.listen(PORT, () => {
 
 conn.authenticate()
     .then(() => {
-        return conn.sync();
+        return conn.sync({alter: true});
     })
     .catch((error) => {
         console.log(
