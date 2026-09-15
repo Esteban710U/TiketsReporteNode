@@ -1,158 +1,77 @@
-import { User } from "../models/modelUser.js";
-import { Rol } from "../models/ModelRol.js";
-import { Department } from "../models/ModelDepartment.js";
-import { Specialization } from "../models/ModelSpecialization.js";
+import { User } from "../models/ModelUser.js"
+import { Rol } from "../models/ModelRol.js"
+import { Department } from "../models/ModelDepartment.js"
+import { Specialization } from "../models/ModelSpecialization.js"
 
+// Create User
 
-//create user
 export function createUser(data) {
-
     return User.create(data)
-
-        .then((response) => {
-
-            return response;
-
-        })
-
-        .catch((error) => {
-
-            throw error;
-
-        });
 }
 
 
-//get all user 
+// Get all User
 
-export function getUser() {
+export function getUser(data) {
 
     return User.findAll({
-        include: [
 
+        ...data,
+
+        include: [
             {
                 model: Rol,
                 attributes: ["name"]
             },
-
             {
                 model: Department,
-                attributes:["name"]
+                attributes: ["name"]
             },
-
             {
                 model: Specialization,
                 attributes: ["name"]
             }
-
         ]
 
     })
 
-        .then((response) => {
-
-            return response;
-
-        })
-
-        .catch((error) => {
-
-            throw error;
-
-        });
 }
 
 
-//update user
+// Update User
 
 export function updateUser(data, id) {
 
     return User.update(data, {
 
-        where: {
-            id_user: id
-        }
+        where: { id_User: id }
 
     })
 
-        .then((response) => {
-
-            return response;
-
-        })
-
-        .catch((error) => {
-
-            throw error;
-
-        });
 }
 
 
-//Delete user 
+// Delete User
 
 export function deleteUser(id) {
 
     return User.destroy({
 
-        where: {
-            id_user: id
-        }
+        where: { id_User: id }
 
     })
 
-        .then((response) => {
-
-            return response;
-
-        })
-
-        .catch((error) => {
-
-            throw error;
-
-        });
 }
 
 
-//Get user by name 
+// Get User for name
+
 export function getUserName(first_name) {
 
     return User.findOne({
 
-        where: {
-            first_name: first_name
-        },
-        include: [
-
-            {
-                model: Rol,
-                attributes: ["name"]
-            },
-
-            {
-                model: Department,
-                attributes: ["name"]
-            },
-
-            {
-                model: Specialization,
-                attributes:["name"]
-            }
-
-        ]
+        where: { first_name: first_name }
 
     })
 
-        .then((response) => {
-
-            return response;
-
-        })
-
-        .catch((error) => {
-
-            throw error;
-
-        });
 }

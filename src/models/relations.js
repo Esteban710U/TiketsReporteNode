@@ -1,5 +1,6 @@
+import express from "express";
 import { Department } from "./ModelDepartment.js";
-import { User } from "./modelUser.js";
+import { User } from "./ModelUser.js";
 import { Rol } from "./ModelRol.js";
 import { Specialization } from "./ModelSpecialization.js";
 import { StatesTicket } from "./modelStates_ticket.js";
