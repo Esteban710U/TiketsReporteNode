@@ -1,7 +1,8 @@
 import { createUser, getUser, updateUser, deleteUser, getUserName } from "../repositorys/RepositoryUser.js";
+import { encryptPassword } from "../utils/password.js";
 
 // register one User
-export function registerUser(data) {
+export async function registerUser(data) {
 
       if (
         !data.first_name ||
@@ -12,7 +13,18 @@ export function registerUser(data) {
     )  {
         return new Promise.reject(new Error("Incomplete Fields..."))
     }
-    return createUser(data)
+
+    const encryptedPassword = await encryptPassword(
+    data.password
+    );
+
+    const user = {
+        ...data,
+        password: encryptedPassword
+    };
+
+
+    return createUser(user);
 }
 
 
@@ -22,12 +34,21 @@ export function listUser() {
 }
 
 // update User
-export function modifyUser(data, id) {
+export async function modifyUser(data, id) {
     if (!id) {
         return new Promise.reject(new Error("The ID is required..."))
     }
 
-    return updateUser(data, id)
+    const encryptedPassword = await encryptPassword(
+        data.password
+    );
+
+    const user = {
+        ...data,
+        password: encryptedPassword
+    };
+
+    return updateUser(user, id)
 }
 
 
