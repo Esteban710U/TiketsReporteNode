@@ -1,4 +1,3 @@
-import express from "express";
 import { Department } from "./ModelDepartment.js";
 import { User } from "./ModelUser.js";
 import { Rol } from "./ModelRol.js";
