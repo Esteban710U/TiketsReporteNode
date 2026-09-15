@@ -29,6 +29,19 @@ export const User = conn.define("User", {
     password : {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    
+    id_rol: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    id_departament: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    id_specialization: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     timestamps : true

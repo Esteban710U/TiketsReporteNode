@@ -1,34 +1,175 @@
-import { User } from "../models/ModelUser.js"
-// Create User
+import { User } from "../models/modelUser.js";
+import { Rol } from "../models/ModelRol.js";
+import { Department } from "../models/ModelDepartment.js";
+import { Specialization } from "../models/ModelSpecialization.js";
+
+
+// ==========================================
+// CREATE USER
+// ==========================================
+
 export function createUser(data) {
+
     return User.create(data)
+
+        .then((response) => {
+
+            return response;
+
+        })
+
+        .catch((error) => {
+
+            throw error;
+
+        });
 }
 
 
-// Get all User
-export function getUser(data) {
-    return User.findAll(data)
+// ==========================================
+// GET ALL USERS
+// ==========================================
+
+export function getUser() {
+
+    return User.findAll({
+
+        // MODIFICADO:
+        // Include permite traer los datos relacionados
+        // de Rol, Department y Specialization
+        // en lugar de solamente sus IDs.
+
+        include: [
+
+            {
+                model: Rol
+            },
+
+            {
+                model: Department
+            },
+
+            {
+                model: Specialization
+            }
+
+        ]
+
+    })
+
+        .then((response) => {
+
+            return response;
+
+        })
+
+        .catch((error) => {
+
+            throw error;
+
+        });
 }
 
-    
-// Update User
+
+// ==========================================
+// UPDATE USER
+// ==========================================
+
 export function updateUser(data, id) {
+
     return User.update(data, {
-        where: { id_User: id }
+
+        where: {
+            id_user: id
+        }
+
     })
+
+        .then((response) => {
+
+            return response;
+
+        })
+
+        .catch((error) => {
+
+            throw error;
+
+        });
 }
 
-// Delete User
+
+// ==========================================
+// DELETE USER
+// ==========================================
+
 export function deleteUser(id) {
+
     return User.destroy({
-        where: { id_User: id }
+
+        where: {
+            id_user: id
+        }
+
     })
+
+        .then((response) => {
+
+            return response;
+
+        })
+
+        .catch((error) => {
+
+            throw error;
+
+        });
 }
 
 
-// Get User for name
+// ==========================================
+// GET USER BY FIRST NAME
+// ==========================================
+
 export function getUserName(first_name) {
+
     return User.findOne({
-        where: { first_name: first_name }
+
+        where: {
+            first_name: first_name
+        },
+
+        // MODIFICADO:
+        // También incluimos las tablas relacionadas
+        // cuando buscamos un usuario por nombre.
+
+        include: [
+
+            {
+                model: Rol
+            },
+
+            {
+                model: Department
+            },
+
+            {
+                model: Specialization
+            }
+
+        ]
+
     })
+
+        .then((response) => {
+
+            return response;
+
+        })
+
+        .catch((error) => {
+
+            throw error;
+
+        });
 }
