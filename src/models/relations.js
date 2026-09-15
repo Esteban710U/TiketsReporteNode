@@ -24,13 +24,15 @@ User.belongsTo(Specialization, { foreignKey: "id_specialization" });
 //Foreign key WorkTeam
 WorkTeam.belongsToMany(User, {
     through: TeamUser,
-    foreignKey: "id_WorkTeam"
+    foreignKey: "id_WorkTeam",
+    otherKey: "id_user"
 });
 
 //Foreign key User
 User.belongsToMany(WorkTeam, {
     through: TeamUser,
-    foreignKey: "id_user"
+    foreignKey: "id_user",
+    otherKey: "id_WorkTeam"
 });
 
 //Relation DevePelaez SupportDevice
@@ -120,9 +122,6 @@ priority.hasMany(Ticket, {
 Ticket.belongsTo(priority, {
     foreignKey: "id_priority"
 })
-
-
-//
 
 export {
     Rol,
