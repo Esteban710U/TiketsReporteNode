@@ -31,18 +31,7 @@ export const User = conn.define("User", {
         allowNull: false
     },
     
-    id_rol: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    id_departament: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    id_specialization: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }
+    
 }, {
     timestamps : true
 }

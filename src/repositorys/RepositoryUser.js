@@ -4,10 +4,7 @@ import { Department } from "../models/ModelDepartment.js";
 import { Specialization } from "../models/ModelSpecialization.js";
 
 
-// ==========================================
-// CREATE USER
-// ==========================================
-
+//create user
 export function createUser(data) {
 
     return User.create(data)
@@ -26,31 +23,26 @@ export function createUser(data) {
 }
 
 
-// ==========================================
-// GET ALL USERS
-// ==========================================
+//get all user 
 
 export function getUser() {
 
     return User.findAll({
-
-        // MODIFICADO:
-        // Include permite traer los datos relacionados
-        // de Rol, Department y Specialization
-        // en lugar de solamente sus IDs.
-
         include: [
 
             {
-                model: Rol
+                model: Rol,
+                attributes: ["name"]
             },
 
             {
-                model: Department
+                model: Department,
+                attributes:["name"]
             },
 
             {
-                model: Specialization
+                model: Specialization,
+                attributes: ["name"]
             }
 
         ]
@@ -71,9 +63,7 @@ export function getUser() {
 }
 
 
-// ==========================================
-// UPDATE USER
-// ==========================================
+//update user
 
 export function updateUser(data, id) {
 
@@ -99,9 +89,7 @@ export function updateUser(data, id) {
 }
 
 
-// ==========================================
-// DELETE USER
-// ==========================================
+//Delete user 
 
 export function deleteUser(id) {
 
@@ -127,10 +115,7 @@ export function deleteUser(id) {
 }
 
 
-// ==========================================
-// GET USER BY FIRST NAME
-// ==========================================
-
+//Get user by name 
 export function getUserName(first_name) {
 
     return User.findOne({
@@ -138,23 +123,21 @@ export function getUserName(first_name) {
         where: {
             first_name: first_name
         },
-
-        // MODIFICADO:
-        // También incluimos las tablas relacionadas
-        // cuando buscamos un usuario por nombre.
-
         include: [
 
             {
-                model: Rol
+                model: Rol,
+                attributes: ["name"]
             },
 
             {
-                model: Department
+                model: Department,
+                attributes: ["name"]
             },
 
             {
-                model: Specialization
+                model: Specialization,
+                attributes:["name"]
             }
 
         ]
