@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "seed": "node src/database/seed.js"
+    "seed": "node src/database/poblar.js",
+    "seed2": "node src/database/createAdmin.js"
   },
   "keywords": [],
   "author": "",

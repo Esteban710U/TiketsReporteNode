@@ -1,5 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1dGlAZ21haWwuY29tIiwicm9sIjoxLCJpYXQiOjE3ODk1MjI3MzgsImV4cCI6MTc4OTUyOTkzOH0.bB-j38rlN7E8lTdUELFQPT9Zz2Ag7Dz4XCQq0JF1tPc
-
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc0B0ZXN0LmNvbSIsImlkX3JvbCI6MSwiaWF0IjoxNzg5NTI4MjkxLCJleHAiOjE3ODk1MzU0OTF9.rbSi3-D8AQu48YiXL_i8FgDvLN8nfe5_Ug18HDWZDUs
 
 ### Get all users
 GET http://localhost:3000/api/user

@@ -56,7 +56,7 @@ app.listen(PORT, () => {
 
 
 conn.authenticate()
-    .then(() => {
+    .then(async() => {
         return conn.sync({alter: true});
     })
     .catch((error) => {

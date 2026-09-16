@@ -20,7 +20,7 @@ async function seedDatabase() {
 
         // 3. Insertar Roles (Padre)
         const rols = await Rol.bulkCreate([
-            { name: 'Admin' },
+            { name: 'Administrador' },
             { name: 'Técnico' },
             { name: 'Usuario Final' }
         ]);

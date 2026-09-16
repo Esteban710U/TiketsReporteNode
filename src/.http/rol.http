@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJlc2dvbWV6QGdtYWlsLmNvbSIsImlhdCI6MTc4OTQ5MDQzOCwiZXhwIjoxNzg5NTc2ODM4fQ.BGf26or2u0VbtfkU4dipcR8wp-h-lHnT7Ke8gFEz-Z0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc0B0ZXN0LmNvbSIsImlkX3JvbCI6bnVsbCwiaWF0IjoxNzg5NTI1ODg1LCJleHAiOjE3ODk1MzMwODV9.TsGvNOaKTgebu6llJeS191YlNKAuUy02gseRXyuV2HE
 
 ### Get all roles
 GET http://localhost:3000/api/role
