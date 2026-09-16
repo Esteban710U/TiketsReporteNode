@@ -1,0 +1,9 @@
+#   "token": eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1dGlAZ21haWwuY29tIiwicm9sIjoxLCJpYXQiOjE3ODk1MjI3MzgsImV4cCI6MTc4OTUyOTkzOH0.bB-j38rlN7E8lTdUELFQPT9Zz2Ag7Dz4XCQq0JF1tPc
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "guti@gmail.com",
+    "password": "12345"
+}

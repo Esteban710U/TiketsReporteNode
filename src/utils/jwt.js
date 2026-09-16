@@ -2,15 +2,15 @@ import jwt from "jsonwebtoken"
 export function generateToken(user){
 
 
-    return (
+    return jwt.sign(
         {
             id: user.id,
             email: user.email,
-            role: user.id_rol
+            id_rol: user.id_rol
         },
         process.env.JWT_SECRET,
         {
-            expiresIn : "1d"
+            expiresIn : "2h"
         }
     )
 }
