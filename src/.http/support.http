@@ -1,0 +1,48 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc0B0ZXN0LmNvbSIsImlkX3JvbCI6bnVsbCwiaWF0IjoxNzg5NTI1ODg1LCJleHAiOjE3ODk1MzMwODV9.TsGvNOaKTgebu6llJeS191YlNKAuUy02gseRXyuV2HE
+
+### Create Support
+POST http://localhost:3000/api/support
+Content-Type: application/json
+Authorization: Bearer : {{token}}
+{
+    "id_support" : "1",
+    "comment" : "Prueba"
+}
+
+###
+
+
+### List Support
+
+GET http://localhost:3000/api/support
+Authorization: Bearer : {{token}}
+
+
+###
+
+
+### Update Support By ID
+
+PATCH http://localhost:3000/api/support/1
+Content-Type: application/json
+
+{
+    "comment" : "PruebaAprobada"
+}
+
+###
+
+
+### Delete Support By ID
+
+DELETE http://localhost:3000/api/support/1
+
+###
+
+
+
+### Search Support By ID
+
+GET http://localhost:3000/api/support/1
+
+###
