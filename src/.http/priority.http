@@ -22,7 +22,7 @@ Authorization: Bearer {{token}}
 
 {
     "name": "Alta"
-}
+} 
 
 ### Delete Priority by ID
 DELETE http://localhost:3000/api/priority/1
