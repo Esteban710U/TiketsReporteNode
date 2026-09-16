@@ -6,7 +6,16 @@ export function createPriority(data){
 
 //Get all priority
 export function getPriority(data){
-    return priority.findAll(data)
+    return priority.findAll({
+        include: [
+            {
+                model: priority
+            },
+            {
+                model
+            }
+        ]
+    })
 }
 
 //Update priority
