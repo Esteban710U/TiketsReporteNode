@@ -1,4 +1,4 @@
-import { createUser, getUser, updateUser, deleteUser, getUserName } from "../repositorys/RepositoryUser.js";
+import { createUser, getUser, updateUser, deleteUser, getUserName, findUserByEmail } from "../repositorys/RepositoryUser.js";
 import { encryptPassword } from "../utils/password.js";
 
 // register one User
@@ -14,6 +14,10 @@ export async function registerUser(data) {
         return new Promise.reject(new Error("Incomplete Fields..."))
     }
 
+    const existingUser = await findUserByEmail(data.email);
+    if (existingUser) {
+        return Promise.reject(new Error("Email already registered..."));
+    }
     const encryptedPassword = await encryptPassword(
     data.password
     );
@@ -37,6 +41,11 @@ export function listUser() {
 export async function modifyUser(data, id) {
     if (!id) {
         return new Promise.reject(new Error("The ID is required..."))
+    }
+    
+    const existingUser = await findUserByEmail(data.email);
+    if (existingUser) {
+        return Promise.reject(new Error("Email already registered..."));
     }
 
     const encryptedPassword = await encryptPassword(
